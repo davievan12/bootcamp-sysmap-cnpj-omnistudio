@@ -266,12 +266,11 @@ Decisões significativas estão registradas como ADRs seguindo o [template de Mi
 
 ---
 
-**Uso de IA**
+## Uso de IA
 
 O briefing (página 8) solicita justificativa explícita sobre uso de IA. Usei Claude (Anthropic) nas seguintes frentes:
 
 Debugging e criação de código — auxílio na identificação de erros, criação de trechos de código e fórmulas que implementei durante a realização do projeto.
-Sugestões de mapeamento entre o JSON da ReceitaWS e os campos do Account no Data Mapper — validei contra o contrato real da API.
 Estruturação de fórmulas complexas no Integration Procedure Designer.
 Estruturação da documentação — draft inicial, que revisei tecnicamente e ajustei.
 
