@@ -266,7 +266,8 @@ Decisões significativas estão registradas como ADRs seguindo o [template de Mi
 
 ---
 
-Uso de IA
+**Uso de IA**
+
 O briefing (página 8) solicita justificativa explícita sobre uso de IA. Usei Claude (Anthropic) nas seguintes frentes:
 
 Debugging e criação de código — auxílio na identificação de erros, criação de trechos de código e fórmulas que implementei durante a realização do projeto.
