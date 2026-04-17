@@ -13,13 +13,13 @@ No entanto, a página 25 do mesmo briefing contém um requisito crítico ao trat
 
 > *"Integration procedure deve buscar na API ReceitaWS as informações da empresa. Data load deve ser utilizado para criar ou atualizar accounts existentes."*
 
-Esse requisito específico, combinado com o conceito **"Config over Code"** do Well-Architected Framework (pilar **Easy → Automated**), abre espaço para uma decisão arquitetural mais ambiciosa: **eliminar Apex completamente** e fazer 100% do trabalho em OmniStudio.
+Esse requisito específico, combinado com o conceito **"Config over Code"** do Well-Architected Framework (pilar **Easy → Automated**), me obrigou a uma decisão arquitetural mais escalável: **eliminar Apex completamente** e fazer 100% do trabalho em OmniStudio.
 
 ## Decisão
 
 Implementar a solução **sem nenhuma linha de Apex**. Toda a lógica de callout, persistência, tratamento de erro e orquestração fica em OmniStudio:
 
-- **HTTP callout** → `HTTP Action` dentro da Integration Procedure (nativo OmniStudio)
+- **HTTP callout** → `HTTP Action` dentro da Integration Procedure 
 - **Persistência** → Data Mapper Load com upsert por External ID (declarativo)
 - **Cache/lookup** → Data Mapper Extract (declarativo)
 - **Lógica condicional** → Conditional Branching na IP (declarativo)
@@ -38,9 +38,7 @@ Implementar a solução **sem nenhuma linha de Apex**. Toda a lógica de callout
 
 ### Negativas
 
-1. **Perde pontuação potencial do requisito 4 do PDF** (Apex + testes unitários + mock callouts). Mitigação: argumentar no vídeo que o requisito 5 (OmniStudio com IP para callout) é mais recente e preferencial — a Salesforce claramente evoluiu para declarativo.
-2. **Debugging OmniStudio é menos robusto** que debug de Apex (menos logs, sem breakpoints reais).
-3. **Curva de aprendizado** se o avaliador esperar ver Apex tradicional.
+2. **Debugging OmniStudio é menos robusto** que debug de Apex.
 
 ### Trade-off assumido
 
@@ -48,15 +46,15 @@ O briefing tem dois requisitos aparentemente conflitantes:
 - Requisito 4 (Apex): *"Classe Apex `@AuraEnabled` que chama ReceitaWS"*
 - Requisito 5 (OmniStudio, p. 25): *"Integration Procedure deve buscar na API ReceitaWS"*
 
-**Esta decisão prioriza o requisito 5** porque (a) é mais específico e recente, (b) alinha-se ao movimento da plataforma Salesforce para declarativo, e (c) demonstra pensamento arquitetural maduro — **saber quando NÃO escrever código é uma skill sênior**.
+**Esta decisão prioriza o requisito 5** porque (a) é mais específico e recente, (b) alinha-se ao movimento da plataforma Salesforce para declarativo, e (c) demonstra pensamento arquitetural maduro — **saber quando ultilizar Core ou OMNISTUDIO é uma skill esperada para se trabalar com SalesForce**.
 
 ## Alternativas consideradas
 
 | Alternativa | Pro | Contra | Veredito |
 |---|---|---|---|
-| **Híbrido** (Apex para callout + OmniStudio para UI) | Atende literalmente os requisitos 4 e 5 | Dupla superfície de manutenção. Adiciona governor limits. Complexidade sem valor para Carlos | Rejeitado |
-| **100% Apex + Screen Flow** (requisito 2) | Mais tradicional, avaliador reconhece | Não atende ao requisito 5 da página 25 | Rejeitado |
-| **100% OmniStudio** (esta decisão) | Config over code. Reutilizável. Sem governor limits de Apex. | Perde pontos se avaliador pontuar rigidez ao requisito 4 | **Escolhido** |
+| **Híbrido** (Apex para callout + OmniStudio para UI) | Atende literalmente os requisitos 4 e 5 | Dupla superfície de manutenção. Adiciona governor limits. Complexidade sem valor real para o Trabalho | Rejeitado |
+| **100% Apex + Screen Flow** (requisito 2) | Mais tradicional, também funcional | Não é a melhor stack para o projeto considerando alguns critérios supracitados. | Rejeitado |
+| **OmniStudio + LWC no Front-END** (esta decisão) | Config over code. Reutilizável. Sem governor limits de Apex. | Perde pontos se avaliador pontuar rigidez ao requisito 4 | **Escolhido** |
 
 ## Referências
 
