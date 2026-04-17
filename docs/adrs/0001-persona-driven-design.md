@@ -41,18 +41,16 @@ Adotar uma **persona-driven design** para guiar todas as decisões de UX e arqui
 
 ### Positivas
 
-- **Argumento técnico forte para avaliação:** toda decisão do projeto pode ser justificada com "eu fiz X porque o Carlos precisa de Y", em vez de "escolhi X porque é melhor tecnicamente"
 - **Alinhamento com Well-Architected (Easy → Intentional):** o framework Salesforce exige que decisões sejam intencionais e alinhadas ao valor de negócio
 - **Coerência:** elimina decisões conflitantes. Se uma escolha técnica favorece o desenvolvedor mas prejudica o Carlos, ela é descartada
 
 ### Negativas
 
-- **Tempo inicial:** definir persona antes de codar adiciona ~30 min de setup
 - **Risco de over-engineering se persona virar dogma:** mitigação → persona é referência, não lei. Decisões técnicas objetivas (ex: naming, security) não precisam citar Carlos
 
 ## Alternativas consideradas
 
-1. **Requirements-driven puro** — seguir o PDF ao pé da letra sem persona. Rejeitado: gera soluções tecnicamente corretas mas com UX medíocre, e sem narrativa forte para o vídeo.
+1. **Requirements-driven puro** — seguir o PDF ao pé da letra sem persona. Rejeitado: gera soluções tecnicamente corretas mas com UX medíocre, e sem narrativa forte para a venda do produto.
 2. **Data-driven design** — basear decisões em métricas. Rejeitado: projeto de bootcamp não tem baseline histórico de uso.
 
 ## Referências
