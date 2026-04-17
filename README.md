@@ -266,17 +266,16 @@ Decisões significativas estão registradas como ADRs seguindo o [template de Mi
 
 ---
 
-## Uso de IA
-
+Uso de IA
 O briefing (página 8) solicita justificativa explícita sobre uso de IA. Usei Claude (Anthropic) nas seguintes frentes:
 
-- **Algoritmo de validação de dígito verificador do CNPJ em JavaScript** — geração do código, que implementei e testei no LWC.
-- **Sugestões de mapeamento** entre o JSON da ReceitaWS e os campos do Account no Data Mapper — validei contra o contrato real da API.
-- **Estruturação do roteiro do vídeo** e desta documentação — draft inicial, que revisei tecnicamente e ajustei.
+Debugging e criação de código — auxílio na identificação de erros, criação de trechos de código e fórmulas que implementei durante a realização do projeto.
+Sugestões de mapeamento entre o JSON da ReceitaWS e os campos do Account no Data Mapper — validei contra o contrato real da API.
+Estruturação de fórmulas complexas no Integration Procedure Designer.
+Estruturação da documentação — draft inicial, que revisei tecnicamente e ajustei.
 
-**O que não foi feito com IA:** a arquitetura da solução, as decisões de segurança, a configuração dos componentes OmniStudio (IP, Data Mappers, OmniScript), o debugging. A IA foi consultada pontualmente para esclarecer comportamento de elementos específicos da plataforma, mas o desenho da solução e toda a implementação foram execução própria.
-
-O princípio que segui: IA acelera tarefas executáveis — geração de boilerplate, redação, estruturação. Não substitui pensamento arquitetural. OmniStudio, em particular, é uma plataforma onde a IA ainda tem profundidade limitada, e o valor diferencial está no julgamento humano.
+O que não foi feito com IA: a arquitetura da solução, as decisões de segurança, a configuração dos componentes OmniStudio (IP, Data Mappers, OmniScript). A IA foi consultada pontualmente para aumentar minha eficiência codando e no acesso aos comportamentos de elementos específicos da plataforma, mas o desenho da solução e toda a implementação foram execução própria.
+O princípio que segui: IA acelera tarefas executáveis — geração de boilerplate, redação, estruturação. Não substitui pensamento arquitetural, mas alinhada ao conhecimento prévio é uma grande ferramenta de desenvolvimento, já que torna o processo consideravelmente mais rápido e produtivo. OmniStudio, em particular, é uma plataforma onde a IA ainda tem profundidade limitada, e o valor diferencial está no julgamento humano.
 
 ---
 
